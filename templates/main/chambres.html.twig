@@ -6,21 +6,23 @@
 
 {% for chambre in chambres %}
     {% if chambre.id is odd %}
-        <div class="d-flex align-items-center justify-content-around">
+        <div class="d-flex align-items-center justify-content-around mb-3">
             <div class="flex-shrink-0 w-50">
                 <img src="{{chambre.photo}}" alt="la belle photo" class="w-100">
             </div>
-            <div class="flex-grow-1 ms-3">
+            <div class=" ms-3">
                 <h5>{{chambre.titre}}</h5>
                 <p>{{chambre.descriptionCourte|raw}}</p>
+                <a href="{{path("show_chambre",{id:chambre.id})}}" class="btn btn-secondary">Reservez</a>
             </div>            
         </div>            
         <hr>
     {% else %}
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="flex-grow-1 ms-3">
+        <div class="d-flex align-items-center justify-content-around mb-3">
+            <div class="ms-3">
                 <h5>{{chambre.titre}}</h5>
                 <p>{{chambre.descriptionCourte|raw}}</p>
+                <a href="{{path("show_chambre",{id:chambre.id})}}" class="btn btn-secondary">Reservez</a>
             </div>            
             <div class="flex-shrink-0 w-50">
                 <img src="{{chambre.photo}}" alt="la belle photo" class="w-100">

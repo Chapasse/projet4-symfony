@@ -4,8 +4,67 @@
 
 {% block body %}
 <div class="container">
-    <img src="{{chambre.photo}}" alt="">
-    <h5>Equipement et informations</h5>
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+  {% for slider in chambre.sliders %}
+<div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
+      <img src="{{slider.photo}}" class="d-block w-100" alt="" style=" object-fit: cover;">
+    </div>
+  {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+  </div>
+</div>
+
+
+    <h4 class="mt-5">Equipement et informations</h4>
     <p>{{chambre.descriptionLongue|raw}}</p>
+<div class="container-fluid my-5">
+    {{ form_start(form) }}
+    <h5 class="mt-5">{{chambre.titre}}</h5>
+    <div class="row">
+    <div class="col-md-6">
+    {{ form_row(form.dateArrivee) }}
+    </div>
+    <div class="col-md-6">
+    {{ form_row(form.dateDepart) }}
+    </div>
+    </div>
+    <p>Prix à la journée : {{chambre.prixJournalier / 100|number_format(2)}}€</p>
+    
+    <div class="row">
+    <div class="col-md-6">
+    {{ form_row(form.prenom) }}
+    </div>
+    <div class="col-md-6">
+    {{ form_row(form.nom) }}
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+    {{ form_row(form.telephone) }}
+    </div>
+    <div class="col-md-6">
+    {{ form_row(form.email) }}
+    </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary col-md-12">Réserver à ces dates</button>
+
+    {{ form_end(form) }}
+</div>
 </div>
 {% endblock %}

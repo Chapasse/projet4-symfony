@@ -13,12 +13,14 @@
   </div>
   <div class="carousel-inner">
   {% for slider in sliders %}
+  {% if slider.chambre == null %}
 <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
       <img src="{{slider.photo}}" class="d-block w-100" alt="" style=" object-fit: cover;">
       <div class="carousel-caption d-none d-md-block">
       <a href="#" class="btn btn-info">Hôtelhouse | découvrez nos chambre</a>
       </div>
     </div>
+  {% endif %}
   {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
