@@ -46,8 +46,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::section('Gestion des données'),
             MenuItem::linkToCrud('Commandes', 'fas fa-cash-register', Commande::class),
             MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Membre::class),
-            MenuItem::linkToCrud('Chambres', 'fas fa-tshirt', Chambre::class),
-            MenuItem::linkToCrud('Sliders', 'fas fa-tshirt', Slider::class),
+            MenuItem::linkToCrud('Chambres', 'fas fa-bed', Chambre::class),
+            MenuItem::linkToCrud('Sliders', 'fas fa-camera', Slider::class),
         ];
     }
 }
