@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis - Hôtelhouse
+{% endblock %}
+
+{% block body %}
+
+	{% for comment in avis %}
+		<div class="comment">
+			<div class="row">
+				<h4 class="col-md-10">{{ comment.category }}</h4>
+				<h4 class="col-md-2">{{ comment.note }}/5</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					{{ comment.prenom }}
+					{{ comment.nom }}
+					<br>
+					(<small>{{ comment.dateEnregistrement|date('d/m/Y à H:i:s') }}</small>)
+				</div>
+				<div class="col-md-9">
+					{{ comment.content|raw }}
+				</div>
+			</div>
+		</div>
+		<hr>
+
+	{% endfor %}
+
+
+	<section>
+		{{form_start(form, {
+    attr: {novalidate: 'novalidate'}
+    })}}
+		<div class="row">
+			<div class="col-md-8">
+        {{form_row(form.category)}}
+			</div>
+			<div class="col-md-4">
+		{{form_row(form.note)}}
+			</div>
+        </div>
+		<div class="row">
+			<div class="col-md-6">
+				{{form_row(form.nom)}}
+			</div>
+			<div class="col-md-6">
+				{{form_row(form.prenom)}}
+			</div>
+		</div>
+		{{form_row(form.email)}}
+		{{form_widget(form.content, {
+    attr: {
+        placeholder: "contenu de votre avis"
+    }
+})}}
+
+		<button type="submit" class="btn btn-primary mt-2">postez un commentaire</button>
+
+		{{form_end(form)}}
+	</section>
+
+{% endblock %}

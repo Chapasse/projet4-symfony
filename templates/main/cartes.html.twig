@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos chambres
+{% endblock %}
+
+{% block body %}
+
+	<div class="col-md-12">
+		<h1 class="text-center">Le restaurant</h1>
+	</div>
+	<div class="d-flex align-items-center justify-content-around mb-3">
+		<div class="flex-shrink-0 w-50">
+			<img src="https://www.justacote.com/blog-img/petit-dejeuner-a-l-hotel-1467034798.jpg" alt="la belle photo" class="w-100">
+		</div>
+		<div class=" ms-3">
+			<h5>Petit déjeuner</h5>
+			<p>Chez Hôtelhouse nous saurons vous accueillir comme il se doit pour vous proposer un petit déjeuner digne des meilleurs que vous ayez pu déguster dans votre vie.</p>
+		</div>
+	</div>
+	<hr>
+
+	<div class="d-flex align-items-center justify-content-around mb-3">
+		<div class="ms-3">
+			<h5>Entrées et plats</h5>
+			<p>Découvrez nos entrées et plats préparez par notre chef. Une séléction de produits raffinés et de saison qui sauront ravir les papilles de tous</p>
+			<a href="{{asset('view/mets.pdf')}}" class="btn btn-secondary" target="blank">Carte des mets</a>
+		</div>
+		<div class="flex-shrink-0 w-50">
+			<img src="https://www.dorchestercollection.com/wp-content/uploads/paris-plaza-athenee-jean-imbert-au-plaza-athenee-plat-langoustine-904x904.jpg" alt="la belle photo" class="w-100">
+		</div>
+	</div>
+	<hr>
+
+	<div class="d-flex align-items-center justify-content-around mb-3">
+		<div class="flex-shrink-0 w-50">
+			<img src="https://www.dorchestercollection.com/wp-content/uploads/paris-plaza-athenee-jean-imbert-au-plaza-athenee-desserts-904x904.jpg" alt="la belle photo" class="w-100">
+		</div>
+		<div class=" ms-3">
+			<h5>Desserts</h5>
+			<p>Nos desserts vont faire profiter à tous d'une fin de repas savoureuse. Des produits de qualité et une préparation adaptée vous ferons découvrir un monde de saveur innexploré jusque ici.</p>
+			<a href="{{asset('view/desserts.pdf')}}" class="btn btn-secondary" target="blank">Carte des desserts</a>
+		</div>
+	</div>
+	<hr>
+
+
+{% endblock %}

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ShowController extends AbstractController
 {
@@ -19,16 +20,16 @@ class ShowController extends AbstractController
         $chambre = $repo->find($id);
         $chambres = $repo->findAll();
 
-        if (!$commande) {
-            $commande = new Commande;
-            $commande->setDateEnregistrement(new \DateTime);
-        }
+        
+        $commande = new Commande;
         $form = $this->createForm(CommandeType::class, $commande);
-
+        
         $form->handleRequest($rq);
-
+        
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $commande->setChambre($chambre);
+            $commande->setDateEnregistrement(new \DateTime);
             $depart = $commande->getDateArrivee();
 
             if ($depart->diff($commande->getDateDepart())->invert == 1) {
@@ -45,7 +46,6 @@ class ShowController extends AbstractController
             // récupère le prix total (sans la dernière addition, il manque un jour à payer)
 
             $commande->setPrixTotal($prixTotal);
-            
 
             $manager->persist($commande);
             $manager->flush();
@@ -59,5 +59,6 @@ class ShowController extends AbstractController
             'form' => $form,
         ]);
     }
+
 
 }
