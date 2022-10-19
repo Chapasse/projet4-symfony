@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Hôtelhouse
+{% endblock %}
+
+{% block body %}
+{% if affiche == 1 %}
+    	<div class="container" id="contact">
+		<div class="row m-3">
+			<div class="col-md-4 my-3">
+				<h4>Contactez Hôtelhouse</h4>
+				<p>N’hésitez pas à nous contacter pour toute question concernant nos hôtels, ou une réservation dans l’un de nos hôtels, bars, restaurants et spas.</p>
+			</div>
+			<div class="container col-md-8 my-3">
+				{{form_start(form, {
+    attr: {novalidate: 'novalidate'}
+    })}}
+				<div class="row">
+					<div class="col-md-9 my-2">{{form_row(form.category)}}</div>
+					<div class="col-md-3 my-2">{{form_row(form.civilite)}}</div>
+				</div>
+				<div class="col-md-12 my-2">{{form_row(form.sujet)}}</div>
+				<div class="row">
+					<div class="col-md-6 my-2">{{form_row(form.prenom)}}</div>
+					<div class="col-md-6 my-2">{{form_row(form.nom)}}</div>
+				</div>
+				<div class="col-md-12 my-2">{{form_row(form.email)}}</div>
+				<div class="col-md-12 my-2">{{form_widget(form.content, {
+                                        attr: {
+                                            placeholder: "Pour quelle raison souhaitez-vous être contacté ?",
+                                            rows : "5"
+                                            }
+                                        })}}</div>
+					<button type="submit" class="btn btn-primary col-md-12 my-2">Valider</button>
+                {{form_end(form)}}
+			</div>
+		</div>
+	</div>
+{% else %}
+<div class="container" id="who">
+<div class="row p-2">
+<div class="col-md-3">
+<h1>Qui sommes-nous</h1>
+</div>
+<div class="col-md-9">
+<p class="text-justify">Dessiné par le formidable architecte Charles Lefebvre, l’Hôtelhouse ouvre officiellement ses portes le 20 avril 1913. Créée dans l’inimitable style architectural du Paris haussmannien, notre façade en pierre de taille est ornée de magnifiques balcons en fer forgé. <br>
+Intimement lié à notre histoire, notre voisin le Théâtre des Champs-Élysées ouvre ses portes le même mois. Il devient rapidement un repaire populaire pour les compositeurs et amoureux de théâtre, qui dînent régulièrement chez nous après le spectacle. <br>
+Rapidement reconnu comme l’un des meilleurs hôtels de Paris, symbole de l’esprit de la ville, notre immeuble d’origine double sa superficie pendant les Années folles. Il accueille ainsi de nouveaux appartements et salons, également dessinés par Charles Lefebvre.</p>
+</div>
+</div>
+<div class="row p-2">
+<div class="col-md-9">
+<p class="text-justify">Notre restaurant est inauguré en 1936. Déjà révolutionnaire à l’époque, l’aménagement Art déco imaginé par Constant Lefranc suscite encore aujourd’hui l’admiration. Son style s’inspire de la salle à manger de la première classe du Normandie, l’un des plus beaux paquebots de son temps.</p>
+</div>
+<div class="col-md-3">
+<h4>Notre restaurant</h4>
+</div>
+</div>
+<div class="row p-2">
+<img class="col-md-3" src="https://www.dorchestercollection.com/wp-content/uploads/paris-plaza-athenee-facade-1_Landscape-1536x864.jpg" alt="façade de l'hôtel">
+<div class="col-md-9">
+<p class="text-justify">Le 1er août 2010, le label Entreprise du Patrimoine vivant est venu récompenser l’histoire et la gastronomie de notre hôtel. Peu après, en 2011, nous avons été l’un des premiers hôtels à recevoir le titre officiel de “Palace”. Le 20 avril 2013, nous avons célébré avec fierté notre centenaire, 100 ans jour pour jour après l’inauguration de l’hôtel.</p>
+</div>
+</div>
+<div class="row p-2">
+<div class="col-md-8 my-2">
+    <h4>Retrouvez-nous</h4>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.6400106305696!2d2.2975991015733617!3d48.865074642155776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd0dd39a4d%3A0x508194b82b12f012!2s1%20Av.%20Montaigne%2C%2075008%20Paris!5e0!3m2!1sen!2sfr!4v1666169330132!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="col-md-4 my-2">
+<h4>Hôtelhouse</h4>
+<p>Emblème de l’élégance, du romantisme et du luxe, Paris est l’une des plus belles villes au monde. Glamour et culture, tradition et modernité, nous saurons vous guider de la très chic rue de Rivoli jusqu’à l’emblématique tour Eiffel, en passant par les berges de la Seine et le jardin des Tuileries. Vous découvrirez ainsi ce que le monde offre de meilleur en matière de paysages, de cuisine, de musées, de théâtres et de boutiques de luxe.</p>
+</div>
+</div>
+</div>
+
+	<div class="container" id="contact">
+		<div class="row m-3">
+			<div class="col-md-4 my-3">
+				<h4>Contactez Hôtelhouse</h4>
+				<p>N’hésitez pas à nous contacter pour toute question concernant nos hôtels, ou une réservation dans l’un de nos hôtels, bars, restaurants et spas.</p>
+			</div>
+			<div class="container col-md-8 my-3">
+				{{form_start(form, {
+    attr: {novalidate: 'novalidate'}
+    })}}
+				<div class="row">
+					<div class="col-md-9 my-2">{{form_row(form.category)}}</div>
+					<div class="col-md-3 my-2">{{form_row(form.civilite)}}</div>
+				</div>
+				<div class="col-md-12 my-2">{{form_row(form.sujet)}}</div>
+				<div class="row">
+					<div class="col-md-6 my-2">{{form_row(form.prenom)}}</div>
+					<div class="col-md-6 my-2">{{form_row(form.nom)}}</div>
+				</div>
+				<div class="col-md-12 my-2">{{form_row(form.email)}}</div>
+				<div class="col-md-12 my-2">{{form_widget(form.content, {
+                                        attr: {
+                                            placeholder: "Pour quelle raison souhaitez-vous être contacté ?",
+                                            rows : "5"
+                                            }
+                                        })}}</div>
+					<button type="submit" class="btn btn-primary col-md-12 my-2">Valider</button>
+                {{form_end(form)}}
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% endblock %}

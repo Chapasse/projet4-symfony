@@ -60,5 +60,31 @@ class ShowController extends AbstractController
         ]);
     }
 
+    #[Route('/mentions', name:'mentions')]
+    public function mentions()
+    {
+        return $this->render('footer/mentions.html.twig');
+    }
+
+    #[Route('/plan', name:'plan')]
+    public function plan()
+    {
+        return $this->render('footer/plan.html.twig');
+    }
+
+    #[Route('/conditions', name:'conditions')]
+    public function conditions()
+    {
+        return $this->render('footer/conditions.html.twig');
+
+    }
+    #[Route('/print', name:'print')]
+    public function print()
+    {
+        
+        return $this->render('footer/print.html.twig');
+    }
+
+
 
 }

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ShowController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1 class="text-center">Actualités du domaine</h1>
+
+<table class="table">
+<thead>
+<tr>
+<th scope="col">Titre</th>
+<th scope="col">description</th>
+<th scope="col">Date de publication</th>
+</tr>
+</thead>
+{% for item in rssItems %}
+    <tr class="my-2">
+    <td><a href="{{ item.link }}">{{ item.title }}</a></td>
+    <td>{{ item.description|raw }}</td>
+    <td>{{ item.pubDate|date("d/m/Y à H:i:s") }}</td>
+    </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

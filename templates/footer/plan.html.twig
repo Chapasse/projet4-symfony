@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plan du site - Hôtelhouse
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Plan du site</h1>
+		<ul class="">
+			<li class="nav-item">
+				<a class="nav-link active" href="{{path('app_main')}}">Accueil
+					<span class="visually-hidden">(current)</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('chambres')}}">Chambres</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('cartes')}}">Restaurant</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('spa')}}">Spa</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('chambres')}}">Reservation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('avis')}}">Avis</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('who')}}">L'hôtel</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('actualites')}}">Actualités</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('contact')}}">Contact</a>
+			</li>
+			{# <li class="nav-item">
+				<a class="nav-link" href="{{path('admin')}}">BACKOFFICE</a>
+			</li> #}
+
+
+		</div>
+	{% endblock %}

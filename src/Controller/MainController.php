@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Avis;
 use App\Form\AvisType;
+use App\Form\ContactType;
 use App\Repository\AvisRepository;
 use App\Repository\ChambreRepository;
 use App\Repository\SliderRepository;
@@ -54,17 +55,28 @@ class MainController extends AbstractController
         return $this->render('main/spa.html.twig');
     }
 
+    #[Route('avis/filtre', name:'avis_filtre')]
     #[Route('avis', name:'avis')]
-    public function avis(EntityManagerInterface $manager, Request $globals, AvisRepository $repo)
+    public function avis(EntityManagerInterface $manager, Request $globals, AvisRepository $repo, $category = null)
     {
+        if($globals->request->get('category') != null):
+            $category = $globals->request->get('category');
+        endif;
+        $avisFiltre = $repo->findBy(["category" => $category]);
         $avis = $repo->findAll();
-
+        
         $comment = new Avis;
         $form=$this->createForm(AvisType::class, $comment);
         $form->handleRequest($globals);
 
         if($form->isSubmitted() && $form->isValid())
         {
+            if($comment->getNote()>5 || $comment->getNote()<0)
+            {
+                $this->addFlash('warning', "⚠ la note doit être comprise entre 0 et 5");
+                return $this->redirectToRoute('avis');
+            }
+            
             $comment->setDateEnregistrement(new \DateTime);
             $manager->persist($comment);
             $manager->flush();
@@ -76,8 +88,52 @@ class MainController extends AbstractController
 
         return $this->renderForm('main/avis.html.twig',[
             'avis' => $avis,
+            'avisFiltre' => $avisFiltre,
+            'category' => $category,
             'form' => $form,
         ]);
+    }
+
+    #[Route('actualites', name:'actualites')]
+    public function actualites()
+    {
+        $rss = simplexml_load_file('https://www.lhotellerie-restauration.fr/rss/actu_rss.xml?xtor=RSS-1');
+        return $this->render('main/actualites.html.twig',[
+            'rssItems' => $rss->channel->item
+        ]);
+    }
+
+    #[Route('/qui-sommes-nous', name:'who')]
+    #[Route('contact', name:'contact')]
+    public function contact(Request $globals, $contact = null)
+    {
+
+        $form=$this->createForm(ContactType::class);
+        $form->handleRequest($globals);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $this->addFlash('success', "votre demande de contact a bien été envoyé");
+            return $this->redirectToRoute("app_main");
+        }
+        $routeName = $globals->get('_route');
+        if($routeName == 'contact')
+        {
+            $contact = 1;
+        }
+
+        return $this->renderForm('main/contact.html.twig',[
+            'affiche' => $contact,
+            'form' => $form,
+        ]);
+ 
+    }
+
+    #[Route('/newsletter', name:'newsletter')]
+    public function newsletter()
+    {
+        $this->addFlash('success', "Vous êtes bien inscris à la newsletter");
+        return $this->redirectToRoute('app_main');
     }
 
 }

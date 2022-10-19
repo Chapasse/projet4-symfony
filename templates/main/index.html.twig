@@ -16,7 +16,7 @@
 			{% for slider in sliders %}
 				{% if slider.chambre == null %}
 					<div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
-						<img src="{{slider.photo}}" class="d-block w-100" alt="" style=" object-fit: cover;">
+						<img src="{{slider.photo}}" class="d-block w-100" alt="photo hotelhouse" style="height:75vh; object-fit:cover;">
 						<div class="carousel-caption d-none d-md-block">
 							<a href="{{path('chambres')}}" class="btn btn-info">Hôtelhouse | découvrez nos chambre</a>
 						</div>
@@ -33,26 +33,49 @@
 			<span class="visually-hidden">Suivant</span>
 		</button>
 	</div>
-	<div class=" lg-col-8 pt-4 bg-white mb-8 ">
-		<h1 class="font-serif mb-3">Hôtelhouse</h1>
-		<p class="text-lg">Il était une fois le palace de demain. Fidèle à sa ville extraordinaire, l’Hôtelhouse n’est pas un palace ordinaire. Ici, sur la prestigieuse avenue Montaigne, adresse de la Haute Couture française, notre hôtel vous offre avec fierté le meilleur de Paris.</p>
-	</div>
-	<div class="d-flex flex-col md:flex-row l items-center justify-content-around mb-4 ">
-		<div class="text-sm d-flex flex-row items-center w-full">
-			<span aria-hidden="true" class="fas fa-location " title="Location" alt="">
-				<i class="fas fa-hotel"></i>
-			</span>
-			<span class="sr-only">Lieu:</span>
-			<div>
-				Hôtelhouse<br>
-				1 avenue Montaigne, 75008 Paris</div>
+
+	<div class="container">
+		<div class="row d-flex justify-content-around">
+			<div class="col-md-3 p-3">
+				<img class="col-md-12 h-50 rounded-circle mx-auto" src="https://www.dorchestercollection.com/wp-content/uploads/paris-plaza-athenee-classic-room-1920x840.jpg" alt="">
+				<p class="text-center col-md-12">Besoin d'un peu de repos ? Venez trouver la chambre qui vous convient</p>
+				<a class="text-center btn btn-secondary col-md-12" href="{{path('chambres')}}">Nos chambres</a>
+			</div>
+			<div class="col-md-3 p-3">
+				<img class="col-md-12 h-50 rounded-circle mx-auto" src="https://www.dorchestercollection.com/wp-content/uploads/paris-plaza-athenee-jean-imbert-au-plaza-athenee-plat-langoustine-904x904.jpg" alt="">
+				<p class="text-center col-md-12">Un passage par notre restaurant ne vous laissera pas indiférent, plus d'informations par ici.</p>
+				<a class="text-center btn btn-secondary col-md-12" href="{{path('cartes')}}">Notre restaurant</a>
+			</div>
+			<div class="col-md-3 p-3">
+				<img class="col-md-12 h-50 rounded-circle mx-auto" src="https://photos.thalassoto.com/HD-BEACH-RESORT-101.jpg" alt="">
+				<p class="text-center col-md-12">Des tensions à faire partir ? du bonheur à recevoir ? reservez la séance qu'il vous faut</p>
+				<a class="text-center btn btn-secondary col-md-12" href="{{path('spa')}}">Nos spas</a>
+			</div>
 		</div>
-		<div class="text-sm d-flex flex-row items-center w-full">
-			<i class="fas fa-phone"></i>
-			<span aria-hidden="true" class="dc-icon dc-call " title="Call" alt=""></span>
-			<span class="sr-only">Téléphone:</span>
-			<div>
-				+33 (0) 1 23 45 67 89</div>
+	</div>
+
+	<div class="container">
+		<div class=" lg-col-8 pt-4 bg-white mb-8 ">
+			<h1 class="font-serif mb-3">Hôtelhouse</h1>
+			<p class="text-lg">Il était une fois le palace de demain. Fidèle à sa ville extraordinaire, l’Hôtelhouse n’est pas un palace ordinaire. Ici, sur la prestigieuse avenue Montaigne, adresse de la Haute Couture française, notre hôtel vous offre avec fierté le meilleur de Paris.</p>
+		</div>
+		<div class="d-flex flex-col md:flex-row l items-center justify-content-around mb-4 ">
+			<div class="text-sm d-flex flex-row items-center w-full">
+				<span aria-hidden="true" class="fas fa-location " title="Location" alt="">
+					<i class="fas fa-hotel"></i>
+				</span>
+				<span class="sr-only">Lieu:</span>
+				<div>
+					Hôtelhouse<br>
+					1 avenue Montaigne, 75008 Paris</div>
+			</div>
+			<div class="text-sm d-flex flex-row items-center w-full">
+				<i class="fas fa-phone"></i>
+				<span aria-hidden="true" class="dc-icon dc-call " title="Call" alt=""></span>
+				<span class="sr-only">Téléphone:</span>
+				<div>
+					+33 (0) 1 23 45 67 89</div>
+			</div>
 		</div>
 	</div>
 {% endblock %}

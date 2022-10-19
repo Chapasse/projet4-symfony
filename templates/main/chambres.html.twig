@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container">
 	{% for chambre in chambres %}
 		{% if chambre.id is odd %}
 			<div class="d-flex align-items-center justify-content-around mb-3">
@@ -32,5 +32,5 @@
 			<hr>
 		{% endif %}
 	{% endfor %}
-
+</div>
 {% endblock %}

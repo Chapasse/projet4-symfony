@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
+
 		<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -14,7 +14,7 @@
 			<div class="carousel-inner">
 				{% for slider in chambre.sliders %}
 					<div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
-						<img src="{{slider.photo}}" class="d-block w-100" alt="" style=" object-fit: cover;">
+						<img src="{{slider.photo}}" class="d-block w-100" alt="" style="height:75vh; object-fit: cover;">
 					</div>
 				{% endfor %}
 			</div>
@@ -27,7 +27,7 @@
 				<span class="visually-hidden">Suivant</span>
 			</button>
 		</div>
-	</div>
+
 
 
 	<h4 class="mt-5">Equipement et informations</h4>
