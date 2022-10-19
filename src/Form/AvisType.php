@@ -20,7 +20,7 @@ class AvisType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-            ->add('content')
+            ->add('content', TextareaType::class)
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'Hôtel' => 'Hôtel',
