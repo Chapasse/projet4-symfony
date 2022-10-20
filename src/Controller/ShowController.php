@@ -34,7 +34,7 @@ class ShowController extends AbstractController
 
             if ($depart->diff($commande->getDateDepart())->invert == 1) {
                 $this->addFlash('danger', 'Une période de temps ne peut pas être négative.');
-                return $this->redirectToRoute('app_show',[
+                return $this->redirectToRoute('show_chambre',[
                     'id' => $chambre->getId()
                 ]);
             }
